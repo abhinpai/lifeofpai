@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { ugcVideoCards } from '../../services/content';
+import { useAnalytics } from '../../hooks/useAnalytics';
 
 export function UGCContentSection() {
   return (
@@ -34,9 +35,11 @@ type HoverVideoCardProps = {
 };
 
 function HoverVideoCard({ title, description, poster, videoSrc }: HoverVideoCardProps) {
+  const { trackEvent } = useAnalytics();
   const mediaRef = useRef<HTMLVideoElement>(null);
 
   const playVideo = () => {
+    trackEvent('ugc_preview_play', { clip_title: title });
     const media = mediaRef.current;
     if (!media) return;
     void media.play().catch(() => {

@@ -1,6 +1,9 @@
 import { instagramAccounts, instagramPosts, youtubeVideos } from '../../services/content';
+import { useAnalytics } from '../../hooks/useAnalytics';
 
 export function SocialSection() {
+  const { trackEvent } = useAnalytics();
+
   return (
     <section id="social" className="px-2 py-10 md:px-3 md:py-14">
       <div className="mx-auto max-w-layout rounded-block bg-soft px-4 py-9 md:px-8 md:py-11">
@@ -16,6 +19,7 @@ export function SocialSection() {
               href="https://www.youtube.com/@lifeofpais"
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackEvent('social_link_click', { platform: 'youtube', destination: 'header_chip' })}
               className="rounded-full border border-text px-4 py-2 text-sm font-semibold text-text transition duration-300 hover:-translate-y-0.5 hover:bg-text hover:text-white hover:shadow-soft"
             >
               YouTube
@@ -24,6 +28,7 @@ export function SocialSection() {
               href="https://www.instagram.com/twin_thumb"
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackEvent('social_link_click', { platform: 'instagram', account: 'twin_thumb', destination: 'header_chip' })}
               className="rounded-full border border-text px-4 py-2 text-sm font-semibold text-text transition duration-300 hover:-translate-y-0.5 hover:bg-text hover:text-white hover:shadow-soft"
             >
               @twin_thumb
@@ -32,6 +37,7 @@ export function SocialSection() {
               href="https://www.instagram.com/coupleofpai"
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackEvent('social_link_click', { platform: 'instagram', account: 'coupleofpai', destination: 'header_chip' })}
               className="rounded-full border border-text px-4 py-2 text-sm font-semibold text-text transition duration-300 hover:-translate-y-0.5 hover:bg-text hover:text-white hover:shadow-soft"
             >
               @coupleofpai
@@ -60,6 +66,7 @@ export function SocialSection() {
                 href="https://www.youtube.com/@lifeofpais"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackEvent('social_link_click', { platform: 'youtube', destination: 'youtube_panel_button' })}
                 className="inline-flex rounded-full border border-text px-4 py-2 text-sm font-semibold text-text transition duration-300 hover:-translate-y-0.5 hover:bg-text hover:text-white hover:shadow-soft"
               >
                 Watch on YouTube
@@ -73,6 +80,12 @@ export function SocialSection() {
                   href={video.url}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() =>
+                    trackEvent('youtube_card_click', {
+                      video_id: video.id,
+                      video_title: video.title,
+                    })
+                  }
                   className="group overflow-hidden rounded-2xl border border-line transition duration-300 hover:-translate-y-0.5 hover:shadow-soft"
                 >
                   <img
@@ -103,6 +116,13 @@ export function SocialSection() {
                       href={account.profileUrl}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={() =>
+                        trackEvent('social_link_click', {
+                          platform: 'instagram',
+                          account: account.handle,
+                          destination: 'account_card',
+                        })
+                      }
                       className="shrink-0 rounded-full border border-text px-3 py-1.5 text-xs font-semibold text-text transition duration-300 hover:-translate-y-0.5 hover:bg-text hover:text-white hover:shadow-soft"
                     >
                       Follow
@@ -119,6 +139,12 @@ export function SocialSection() {
                   href={post.href}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() =>
+                    trackEvent('instagram_preview_click', {
+                      post_id: post.id,
+                      destination: post.href,
+                    })
+                  }
                   className="block overflow-hidden rounded-xl transition duration-300 hover:-translate-y-0.5 hover:shadow-soft"
                 >
                   <img

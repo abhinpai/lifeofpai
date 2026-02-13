@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { itineraryCards } from '../../services/content';
 import type { ItineraryCard } from '../../types';
+import { useAnalytics } from '../../hooks/useAnalytics';
 
 export function ItinerarySection() {
   return (
@@ -54,6 +55,7 @@ function ItineraryCardItem({ card }: { card: ItineraryCard }) {
 }
 
 function CardImageCarousel({ images, title }: { images: string[]; title: string }) {
+  const { trackEvent } = useAnalytics();
   const loopedImages = useMemo(() => {
     if (images.length <= 1) return images;
     const first = images[0];
@@ -119,6 +121,10 @@ function CardImageCarousel({ images, title }: { images: string[]; title: string 
                   type="button"
                   aria-label={`Show image ${dotIndex + 1}`}
                   onClick={() => {
+                    trackEvent('itinerary_image_change', {
+                      itinerary_title: title,
+                      image_index: dotIndex + 1,
+                    });
                     setAnimated(true);
                     setIndex(dotIndex + 1);
                   }}

@@ -214,5 +214,5 @@ export const finalBannerImage =
 
 export const footerContact: FooterContact = {
   address: 'Based in the U.S. Working worldwide.',
-  phone: 'hello@lifeofpai.com',
+  phone: 'coupleofpai@gmail.com',
 };

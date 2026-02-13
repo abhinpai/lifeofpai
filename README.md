@@ -36,6 +36,17 @@ GitHub Actions workflow lives at `/Users/abhinpai/Workshop/lifeofpai/.github/wor
 
 - `FIREBASE_PROJECT_ID` (your Firebase project id, e.g. `lifeofpai-prod`)
 - `FIREBASE_SERVICE_ACCOUNT` (JSON key contents of a Firebase Admin service account)
+- `VITE_FIREBASE_CONFIG` (single JSON object string for Firebase Web config, preferred)
+- `VITE_FIREBASE_API_KEY`
+- `VITE_FIREBASE_AUTH_DOMAIN`
+- `VITE_FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_STORAGE_BUCKET`
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- `VITE_FIREBASE_APP_ID`
+- `VITE_FIREBASE_MEASUREMENT_ID`
+
+`VITE_FIREBASE_CONFIG` can be used alone as a single object string. Split keys are supported as fallback.
+These `VITE_` secrets are injected at build time in CI and used by `/Users/abhinpai/Workshop/lifeofpai/src/analyics/index.ts` to initialize Firebase Analytics.
 
 ### How to get Firebase values
 

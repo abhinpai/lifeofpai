@@ -1,6 +1,9 @@
 import { heroContent, navLinks } from '../../services/content';
+import { useAnalytics } from '../../hooks/useAnalytics';
 
 export function Hero() {
+  const { trackEvent } = useAnalytics();
+
   return (
     <section id="home" className="px-2 pt-2 md:px-3 md:pt-3">
       <div className="relative mx-auto max-w-layout overflow-hidden rounded-block">
@@ -32,7 +35,12 @@ export function Hero() {
 
             <nav className="hidden items-center gap-10 text-sm font-medium md:flex">
               {navLinks.map((link) => (
-                <a key={link.label} href={link.href} className="text-white/90 transition hover:text-white">
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => trackEvent('hero_nav_click', { label: link.label, href: link.href })}
+                  className="text-white/90 transition hover:text-white"
+                >
                   {link.label}
                 </a>
               ))}
@@ -40,6 +48,7 @@ export function Hero() {
 
             <a
               href="#cta"
+              onClick={() => trackEvent('hero_primary_collab_click')}
               className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-text transition hover:bg-white/90"
             >
               Work with us
@@ -53,12 +62,19 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={heroContent.ctaHref}
+                onClick={() => trackEvent('hero_cta_click', { cta: heroContent.ctaLabel, href: heroContent.ctaHref })}
                 className="inline-flex rounded-full bg-white px-7 py-3 text-sm font-semibold text-text transition hover:bg-white/90"
               >
                 {heroContent.ctaLabel}
               </a>
               <a
                 href={heroContent.secondaryCtaHref}
+                onClick={() =>
+                  trackEvent('hero_cta_click', {
+                    cta: heroContent.secondaryCtaLabel,
+                    href: heroContent.secondaryCtaHref,
+                  })
+                }
                 className="inline-flex rounded-full border border-white/85 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
                 {heroContent.secondaryCtaLabel}

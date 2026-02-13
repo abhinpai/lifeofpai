@@ -30,3 +30,4 @@ Thumbs.db
 
 # Large video assets (e.g. hero.mov was 983MB - use .mp4 under 100MB or host elsewhere)
 public/assets/videos/*.mov
+node_modules/.yarn-integrity

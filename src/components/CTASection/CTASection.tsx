@@ -1,6 +1,9 @@
 import { finalBannerImage } from '../../services/content';
+import { useAnalytics } from '../../hooks/useAnalytics';
 
 export function CTASection() {
+  const { trackEvent } = useAnalytics();
+
   return (
     <section id="cta" className="px-2 py-10 md:px-3 md:py-12">
       <div className="relative mx-auto max-w-layout overflow-hidden rounded-block bg-[#353535]">
@@ -22,12 +25,14 @@ export function CTASection() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="mailto:coupleofpai@gmail.com"
+              onClick={() => trackEvent('cta_click', { cta: 'start_here', channel: 'email' })}
               className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-text transition hover:bg-white/90"
             >
               Start here
             </a>
             <a
               href="mailto:coupleofpai@gmail.com"
+              onClick={() => trackEvent('cta_click', { cta: 'contact_us', channel: 'email' })}
               className="rounded-full border border-white/85 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               Contact us
