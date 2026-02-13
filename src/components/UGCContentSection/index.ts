@@ -1,0 +1,1 @@
+export { UGCContentSection } from './UGCContentSection';
