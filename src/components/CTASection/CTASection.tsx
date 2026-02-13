@@ -2,7 +2,7 @@ import { finalBannerImage } from '../../services/content';
 
 export function CTASection() {
   return (
-    <section id="cta" className="px-2 py-12 md:px-3 md:py-14">
+    <section id="cta" className="px-2 py-10 md:px-3 md:py-12">
       <div className="relative mx-auto max-w-layout overflow-hidden rounded-block bg-[#353535]">
         <div
           className="absolute inset-0 bg-cover bg-center"

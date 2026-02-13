@@ -3,7 +3,7 @@ import { ugcVideoCards } from '../../services/content';
 
 export function UGCContentSection() {
   return (
-    <section id="ugc" className="px-2 py-14 md:px-3 md:py-20">
+    <section id="ugc" className="px-2 py-12 md:px-3 md:py-16">
       <div className="mx-auto max-w-layout">
         <p className="text-center text-sm text-muted">UGC videos</p>
         <h2 className="mt-3 text-center text-4xl font-semibold leading-tight text-text md:text-5xl">
@@ -72,14 +72,14 @@ function HoverVideoCard({ title, description, poster, videoSrc }: HoverVideoCard
           <source src={videoSrc} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
-        <span className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-text">
+        <span className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-sm font-semibold text-text">
           Hover to play
         </span>
       </div>
 
       <div className="p-4">
         <h3 className="text-xl font-semibold leading-tight text-text">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+        <p className="mt-2 text-[15px] leading-relaxed text-muted">{description}</p>
       </div>
     </article>
   );

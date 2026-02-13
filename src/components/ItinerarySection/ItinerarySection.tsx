@@ -4,8 +4,8 @@ import type { ItineraryCard } from '../../types';
 
 export function ItinerarySection() {
   return (
-    <section id="itineraries" className="px-2 py-12 md:px-3 md:py-16">
-      <div className="mx-auto max-w-layout rounded-block bg-soft px-4 py-10 md:px-8 md:py-12">
+    <section id="itineraries" className="px-2 py-10 md:px-3 md:py-14">
+      <div className="mx-auto max-w-layout rounded-block bg-soft px-4 py-9 md:px-8 md:py-11">
         <p className="text-sm text-muted">Travel itinerary</p>
         <h2 className="mt-2 max-w-4xl text-4xl font-semibold leading-tight text-text md:text-5xl">
           Ready-to-use itineraries that auto-fit work schedules, budget limits, and couple travel pace
@@ -23,15 +23,19 @@ export function ItinerarySection() {
 
 function ItineraryCardItem({ card }: { card: ItineraryCard }) {
   return (
-    <article className="overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
+    <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
       <CardImageCarousel images={card.images} title={card.title} />
 
-      <div className="p-4 md:p-5">
+      <div className="flex flex-1 flex-col p-4 md:p-5">
         <p className="text-xs text-muted">{card.subtitle}</p>
-        <h3 className="mt-1.5 text-xl font-semibold leading-tight text-text">{card.title}</h3>
-        <p className="mt-2.5 text-sm leading-relaxed text-muted">{card.description}</p>
+        <h3 className="mt-1.5 text-xl font-semibold leading-tight text-text [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
+          {card.title}
+        </h3>
+        <p className="mt-2.5 text-[15px] leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] overflow-hidden">
+          {card.description}
+        </p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-auto pt-4 flex flex-wrap gap-2">
           <span className="rounded-full border border-line px-3 py-1 text-xs font-semibold text-text">
             {card.duration}
           </span>

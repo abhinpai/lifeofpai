@@ -2,8 +2,8 @@ import { stats } from '../../services/content';
 
 export function StatsStrip() {
   return (
-    <section className="px-2 pb-14 pt-14 md:px-3 md:pb-16 md:pt-16">
-      <div className="mx-auto max-w-layout border-b border-dashed border-line pb-12 md:pb-14">
+    <section className="px-2 pb-12 pt-12 md:px-3 md:pb-14 md:pt-14">
+      <div className="mx-auto max-w-layout border-b border-dashed border-line pb-10 md:pb-12">
         <div className="grid grid-cols-2 gap-y-9 md:grid-cols-4">
           {stats.map((stat) => (
             <article key={stat.label} className="text-center">

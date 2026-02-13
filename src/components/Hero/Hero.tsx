@@ -16,7 +16,8 @@ export function Hero() {
           <source src={heroContent.videoSrc} type="video/mp4" />
           <source src="/assets/videos/hero.mov" type="video/quicktime" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/58 via-black/35 to-black/62" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.42)_0%,rgba(0,0,0,0)_62%)]" />
 
         <div className="relative flex min-h-[560px] flex-col px-5 pb-20 pt-7 text-white md:min-h-[620px] md:px-9">
           <header className="flex items-center justify-between">
@@ -45,9 +46,9 @@ export function Hero() {
             </a>
           </header>
 
-          <div className="mx-auto mt-20 max-w-3xl text-center md:mt-24">
+          <div className="mx-auto mt-20 max-w-3xl rounded-3xl border border-white/15 bg-black/24 px-5 py-6 text-center backdrop-blur-[2px] md:mt-24 md:px-8 md:py-8">
             <h1 className="text-4xl font-semibold leading-tight md:text-6xl">{heroContent.title}</h1>
-            <p className="mt-5 text-sm text-white/90 md:text-lg">{heroContent.subtitle}</p>
+            <p className="mt-5 text-base text-white/95 md:text-lg">{heroContent.subtitle}</p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a

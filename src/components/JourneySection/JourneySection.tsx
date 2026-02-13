@@ -2,7 +2,7 @@ import { storyImages, whyPoints } from '../../services/content';
 
 export function JourneySection() {
   return (
-    <section id="journey" className="px-2 py-14 md:px-3 md:py-20">
+    <section id="journey" className="px-2 py-12 md:px-3 md:py-16">
       <div className="mx-auto grid max-w-layout gap-12 md:grid-cols-[1fr_1fr] md:items-center md:gap-16">
         <div className="relative mx-auto h-[380px] w-[320px] md:h-[460px] md:w-[470px]">
           <div className="absolute left-2 top-8 h-[290px] w-[190px] -rotate-[13deg] overflow-hidden rounded-[28px] shadow-soft md:h-[360px] md:w-[220px]">
