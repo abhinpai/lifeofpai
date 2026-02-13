@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output (do not commit - exceeds GitHub limit when it contains videos)
+dist/
+
+# Local env
+.env
+.env.local
+.env.*.local
+
+# Logs and cache
+*.log
+npm-debug.log*
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optional: ignore large video assets in public if you don't want them in repo
+# public/assets/videos/*.mov
+# public/assets/videos/*.mp4

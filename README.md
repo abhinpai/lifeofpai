@@ -30,19 +30,20 @@ GitHub Actions workflow lives at `/Users/abhinpai/Workshop/lifeofpai/.github/wor
 1. Runs on every push/PR to `main`.
 2. Installs dependencies and builds the Vite app.
 3. Validates the Docker build.
-4. On push to `main`, deploys `dist/` to Hostinger via FTP.
+4. On push to `main`, deploys `dist/` to Firebase Hosting.
 
 ### Required GitHub repository secrets
 
-- `HOSTINGER_FTP_HOST` (example: `ftp.yourdomain.com`)
-- `HOSTINGER_FTP_USERNAME`
-- `HOSTINGER_FTP_PASSWORD`
-- `HOSTINGER_FTP_TARGET_DIR` (example: `/public_html/`)
+- `FIREBASE_PROJECT_ID` (your Firebase project id, e.g. `lifeofpai-prod`)
+- `FIREBASE_SERVICE_ACCOUNT` (JSON key contents of a Firebase Admin service account)
 
-### Deploy target on Hostinger
+### How to get Firebase values
 
-- Point your domain `lifeofpai.in` to the Hostinger site where the FTP target directory is configured.
-- Keep `HOSTINGER_FTP_TARGET_DIR` aligned with your live web root (usually `/public_html/`).
+1. In Firebase Console, open your project and enable Hosting.
+2. Go to Project settings -> Service accounts -> Generate new private key.
+3. Copy the downloaded JSON file contents into GitHub secret `FIREBASE_SERVICE_ACCOUNT`.
+4. Copy your project id into GitHub secret `FIREBASE_PROJECT_ID`.
+5. In Firebase Hosting, connect your custom domain `lifeofpai.in`.
 
 ## Docker
 
