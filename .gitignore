@@ -28,6 +28,5 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Optional: ignore large video assets in public if you don't want them in repo
-# public/assets/videos/*.mov
-# public/assets/videos/*.mp4
+# Large video assets (e.g. hero.mov was 983MB - use .mp4 under 100MB or host elsewhere)
+public/assets/videos/*.mov
